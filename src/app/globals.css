@@ -6,21 +6,11 @@
 }
 
 :root {
-  --background: #f8fafc;
-  --foreground: #0f172a;
+  --background: #ffffff;
+  --foreground: #1a1a1a;
   --card: #ffffff;
-  --card-foreground: #0f172a;
-  --border: #e2e8f0;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #f8fafc;
-    --card: #121212;
-    --card-foreground: #f8fafc;
-    --border: #27272a;
-  }
+  --card-foreground: #1a1a1a;
+  --border: #eeeeee;
 }
 
 @theme inline {
@@ -41,6 +31,32 @@ body {
   .text-balance {
     text-wrap: balance;
   }
+}
+
+/* ── News Layout Utilities ─────────────────── */
+:root {
+  --news-container: 1280px;
+}
+
+.news-section-header {
+  @apply flex items-center gap-4 mb-6 border-b-2 border-[var(--border)] relative;
+}
+
+.news-section-title {
+  @apply bg-[var(--color-primary)] text-white px-4 py-1.5 text-sm font-bold uppercase tracking-wider relative z-10;
+}
+
+.news-section-title::after {
+  content: '';
+  @apply absolute top-0 -right-4 border-l-[16px] border-l-[var(--color-primary)] border-t-[16px] border-t-transparent border-b-[16px] border-b-transparent;
+}
+
+.news-card-hover {
+  @apply transition-all duration-300 hover:opacity-90;
+}
+
+.news-grid-border {
+  @apply border-b md:border-b-0 md:border-r border-[var(--border)] last:border-0;
 }
 
 /* ── Rich text content (blog detail page) ─────────────────── */

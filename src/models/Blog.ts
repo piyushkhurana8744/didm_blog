@@ -9,6 +9,8 @@ export interface BlogDocument extends Document {
   author: string;
   isFeatured: boolean;
   tags?: string[];
+  rating?: number;
+  readTime?: string;
   createdAt: Date;
   updatedAt: Date;
 }
@@ -52,6 +54,16 @@ const blogSchema = new Schema<BlogDocument>(
     isFeatured: {
       type: Boolean,
       default: false,
+    },
+    rating: {
+      type: Number,
+      min: 0,
+      max: 5,
+      default: 0,
+    },
+    readTime: {
+      type: String,
+      default: '5 min read',
     },
   },
   { timestamps: true }
